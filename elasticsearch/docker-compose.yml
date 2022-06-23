@@ -7,7 +7,7 @@ services:
     ulimits:
       memlock: -1
     volumes:
-      - ./data01:/usr/share/elasticsearch/data
+      - ./data/data01:/usr/share/elasticsearch/data
       - ./conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
       - 9200:9200
