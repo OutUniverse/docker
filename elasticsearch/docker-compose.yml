@@ -5,7 +5,7 @@ services:
     environment:
       - node.name=es_01
       - cluster.name=es-cluster
-      - descovery.seed_hosts=es_02,es_03
+      - discovery.seed_hosts=es_02,es_03
       - cluster.initial_master_nodes=es_01,es_02,es_03
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -25,7 +25,7 @@ services:
     environment:
       - node.name=es_02
       - cluster.name=es-cluster
-      - descovery.seed_hosts=es_01,es_03
+      - discovery.seed_hosts=es_01,es_03
       - cluster.initial_master_nodes=es_01,es_02,es_03
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -43,7 +43,7 @@ services:
     environment:
       - node.name=es_03
       - cluster.name=es-cluster
-      - descovery.seed_hosts=es_01,es_02
+      - discovery.seed_hosts=es_01,es_02
       - cluster.initial_master_nodes=es_01,es_02,es_03
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -56,6 +56,15 @@ services:
       - ./conf/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     networks:
       - elastic
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.2.3
+    ports: 
+      - 5601:5601
+    volumes:
+      - ./conf/kibana.yml:/usr/share/kibana/config/kibana.yml
+    networks:
+      - elastic
+
   
 networks:
   elastic:
