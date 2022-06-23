@@ -1,2 +1,3 @@
 redis/data/*
 mysql/data/*
+elasticsearch/data01/*
