@@ -67,17 +67,29 @@ services:
     networks:
       - elastic
   logstash:
+    depends_on:
+      - es01
+      - es02
+      - es03
     image: docker.elastic.co/logstash/logstash:${STACK_VERSION}
     ports:
       - 9600:9600
     volumes:
       - ./data/logstash:/usr/share/logstash/pipeline
-      # - ./logstage:/usr/share/logstash/config
+      - ./conf/logstash.conf:/usr/share/logstash/config/logstash.conf
     environment:
       - XPACK_MONITORING_ELASTICSEARCH_HOSTS=http://es01:9200
       - XPACK_MONITORING_ENABLED=true
     networks:
       - elastic
+  cerebro:
+    image: lmenezes/cerebro:0.8.3
+    ports:
+      - "9000:9000"
+    command:
+      - -Dhosts.0.host=http://es01:9200
+    networks:
+     - elastic
 
 networks:
   elastic:
