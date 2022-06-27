@@ -2,6 +2,9 @@ version: '3'
 services:
   lua:
     build: './'
+    image: lua:1.0
+    container_name: lua
     volumes:
       - ./files:/mnt
+    working_dir: /mnt
     tty: true
