@@ -8,3 +8,4 @@ services:
       - 8083:8080
     volumes:
       - ./webapps:/usr/local/tomcat/webapps
+      - ./conf:/usr/local/tomcat/conf
