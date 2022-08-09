@@ -7,4 +7,5 @@ services:
     ports:
       - 8085:8080
     volumes:
+      - ./conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - ./webapps:/usr/local/tomcat/webapps
