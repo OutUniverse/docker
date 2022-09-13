@@ -3,3 +3,4 @@ mysql/data/*
 elasticsearch/data/*
 .vscode/*
 tomcat/webapps/*
+gcc/compile/*

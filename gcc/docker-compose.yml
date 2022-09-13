@@ -5,4 +5,5 @@ services:
     image: gcc:latest
     volumes:
       - ./:/project
+    working_dir: /project
     tty: true
