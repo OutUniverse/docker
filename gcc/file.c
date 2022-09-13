@@ -1,12 +1,22 @@
 # include <stdio.h>
 
 int main (void) {
-    int i1, i2;
+    char arr[] = {'a', 'c', 'z', 'q', 'h'};
 
-    scanf("%d", &i1);
+    FILE* fp = fopen("../test.txt", "wb");
 
-    freopen("test.txt", "r", stdin);
-    scanf("%d", &i2);
+    fwrite(arr, sizeof(arr[0]), sizeof(arr) / sizeof(arr[0]), fp);
+    
+    fclose(fp);
 
-    printf("%d %d", i1, i2);
+    FILE* fpr = fopen("../test.txt", "rb");
+
+    char c;
+
+    while (fread(&c, sizeof(char), 1, fpr) > 0)
+    {
+        printf("%c", c);
+    }
+    
+    fclose(fp);
 }
