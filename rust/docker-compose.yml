@@ -3,6 +3,6 @@ services:
   rust:
     image: rust:latest
     volumes:
-      - ./code:/projects/rust
-    working_dir: /projects/rust
+      - ./projects:/projects
+    working_dir: /projects
     tty: true
