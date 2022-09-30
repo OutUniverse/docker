@@ -1,0 +1,13 @@
+/Users/zhaoji/Develop/projects/docker/rust/projects/httpie/target/debug/deps/tracing-41acb53bc3964851.rmeta: /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/lib.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/macros.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/dispatcher.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/field.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/instrument.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/level_filters.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/span.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/stdlib.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/subscriber.rs
+
+/Users/zhaoji/Develop/projects/docker/rust/projects/httpie/target/debug/deps/tracing-41acb53bc3964851.d: /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/lib.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/macros.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/dispatcher.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/field.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/instrument.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/level_filters.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/span.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/stdlib.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/subscriber.rs
+
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/lib.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/macros.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/dispatcher.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/field.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/instrument.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/level_filters.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/span.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/stdlib.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-0.1.36/src/subscriber.rs:

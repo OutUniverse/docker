@@ -1,0 +1,11 @@
+/Users/zhaoji/Develop/projects/docker/rust/projects/httpie/target/debug/deps/textwrap-293bf38b07efc448.rmeta: /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/lib.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/indentation.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/word_separators.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/word_splitters.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/wrap_algorithms.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/line_ending.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/core.rs
+
+/Users/zhaoji/Develop/projects/docker/rust/projects/httpie/target/debug/deps/textwrap-293bf38b07efc448.d: /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/lib.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/indentation.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/word_separators.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/word_splitters.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/wrap_algorithms.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/line_ending.rs /Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/core.rs
+
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/lib.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/indentation.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/word_separators.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/word_splitters.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/wrap_algorithms.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/line_ending.rs:
+/Users/zhaoji/.cargo/registry/src/github.com-1ecc6299db9ec823/textwrap-0.15.1/src/core.rs:
