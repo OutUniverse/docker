@@ -28,4 +28,5 @@ struct Post {
 fn main() {
     let opts: Opts = Opts::parse();
     println!("{:?}", opts);
+    println!("test");
 }
