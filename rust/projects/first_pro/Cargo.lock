@@ -14,6 +14,7 @@ version = "0.1.0"
 dependencies = [
  "num",
  "rand 0.3.23",
+ "utf8_slice",
 ]
 
 [[package]]
@@ -150,6 +151,12 @@ checksum = "678054eb77286b51581ba43620cc911abf02758c91f93f479767aed0f90458b2"
 dependencies = [
  "rand_core 0.3.1",
 ]
+
+[[package]]
+name = "utf8_slice"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "44109e280ecf0f5d8e6ee671c0ee650008275c51dc9e494badd11fb39d785408"
 
 [[package]]
 name = "winapi"
