@@ -1,25 +1,16 @@
-#[derive(Debug)]
-struct User {
-    username: String,
-    age: u8,
-    active: bool,
-    sign_in_count: u64,
-    email: String,
-}
+use std::io;
 
 fn main() {
-    let u1 = User {
-        username: String::from("User 1"),
-        age: 8,
-        active: true,
-        sign_in_count: 10,
-        email: String::from("johnson@gmail.com"),
-    };
+    let a = [1; 5];
+    println!("Please input index:");
 
-    let u2 = User {
-        username: String::from("User 2"),
-        ..u1
-    };
+    let mut index = String::new();
 
-    // println!("{:?}", u1);
+    io::stdin().read_line(&mut index).expect("Failed to read");
+
+    let index: usize = index.trim().parse().expect("Index was not a number");
+
+    let element = a[index];
+
+    println!("The index {} value is {}", index, element);
 }
