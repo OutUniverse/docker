@@ -10,6 +10,9 @@ impl Add for Test {
     }
 }
 
+#[derive(Debug, PartialEq, PartialOrd)]
+struct Unit(i32);
+
 fn main() {
     // let t1 = Test{};
     // let t2 = Test{};
