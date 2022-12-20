@@ -1,23 +1,78 @@
-use std::ops::Add;
+trait Birds {
+    fn fly(&self);
+}
 
-#[derive(Debug)]
-struct Test;
+trait Swan {
+    fn fly(&self);
+}
 
-impl Add for Test {
-    type Output = Test;
-    fn add(self, rhs: Self) -> Self::Output {
-        Test
+struct Person;
+
+impl Birds for Person {
+    fn fly(&self) {
+        println!("Birds fly");
     }
 }
 
-#[derive(Debug, PartialEq, PartialOrd)]
-struct Unit(i32);
+impl Swan for Person {
+    fn fly(&self) {
+        println!("Swan fly");
+    }
+}
+
+impl Person {
+    fn fly(&self) {
+        println!("Person fly");
+    }
+}
+
+struct Humen;
+
+impl Humen {
+    fn new() -> String {
+        String::from("Humen")
+    }
+}
+
+trait Test {
+    fn new() -> String;
+}
+
+impl Test for Humen {
+    fn new() -> String {
+        String::from("Test")
+    }
+}
+
+struct Container(i32, i32);
+
+trait Contains {
+    type A;
+    type B;
+
+    fn contains(&self, a: Self::A, b: Self::B) -> bool;
+}
+
+impl Contains for Container {
+    type A = i32;
+    type B = i32;
+
+    fn contains(&self, a: Self::A, b: Self::B) -> bool {
+        self.0 == a && self.1 == b
+    }
+}
 
 fn main() {
-    // let t1 = Test{};
-    // let t2 = Test{};
+    let person = Person;
 
-    // let t3 = t1 + t2;
+    person.fly();
+    Birds::fly(&person);
+    Swan::fly(&person);
 
-    println!("{:?}", Test + Test);
+    println!("{:?}", Humen::new());
+    println!("{:?}", <Humen as Test>::new());
+
+    let container = Container(1, 2);
+
+    println!("{}", container.contains(1, 2));
 }
