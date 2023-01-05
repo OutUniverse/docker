@@ -4,3 +4,4 @@ elasticsearch/data/*
 .vscode/*
 tomcat/webapps/*
 gcc/compile/*
+rust/target/*
