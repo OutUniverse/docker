@@ -11,3 +11,15 @@ pub fn eat_at_restaurant() -> String {
 
     String::from("yummy yummy!")
 }
+
+/**
+```
+let a = 1;
+let b = add_one(a);
+
+assert_eq!(b, 2);
+```
+ */
+pub fn add_one(a: i32) -> i32 {
+    a + 1
+}
