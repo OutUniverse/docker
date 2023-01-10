@@ -4,6 +4,19 @@ struct Test<'a> {
     part: &'a str,
 }
 
+impl<'a> Test<'a> {
+    fn test_lifetime_b<'b>(&'a self, b: &'b str) -> &'b str
+    where 
+        'a: 'b,
+    {
+        if self.part.len() >= b.len() {
+            self.part
+        } else {
+            b
+        }
+    }
+}
+
 #[allow(dead_code)]
 fn main() {
     let a = String::from("This is a test. You must believe");
@@ -11,11 +24,7 @@ fn main() {
 
     let i = Test { part: b };
 
-    println!("{:#?}", i);
-}
-
-fn test_a_big_b() {
-    
+    println!("{:?}", i.test_lifetime_b("lalala, lalala, woshimaibaodexiaohuajia."));
 }
 
 #[cfg(test)]
