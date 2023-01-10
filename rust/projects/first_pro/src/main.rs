@@ -14,6 +14,10 @@ fn main() {
     println!("{:#?}", i);
 }
 
+fn test_a_big_b() {
+    
+}
+
 #[cfg(test)]
 fn longest<'a>(a: &'a str, b: &'a str) -> &'a str {
     if a.len() > b.len() {
