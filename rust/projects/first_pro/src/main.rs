@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 struct Cache<T, E>
 where
     T: Fn(E) -> E,
@@ -7,6 +8,7 @@ where
     value: Option<E>
 }
 
+#[allow(dead_code)]
 impl<T, E> Cache<T, E> 
 where 
     T: Fn(E) -> E,
@@ -32,14 +34,61 @@ where
 }
 
 fn main() {
+    let mut s = String::new();
+
+    let us = || s;
+
+    fn test<T: FnOnce() -> String>(f: T) {
+        
+    }
+}
+
+#[cfg(test)]
+fn test_fn_mut() {
+    let mut s = String::new();
+
+    let update_string = |str| s.push_str(str);
+
+    fn exec<'a, F: FnMut(&'a str)>(mut f: F) {
+        f("hello");
+    }
+
+    exec(update_string);
+
+    println!("{:?}", s);
+}
+
+#[cfg(test)]
+fn test_mut_fuc_var() {
+    let mut s = String::new();
+
+    let mut update_string = |a| s.push_str(a);
+
+    update_string("hello");
+
+    println!("{:?}", s);
+}
+
+#[cfg(test)]
+fn test_move_var() {
     let x = vec![1, 2, 3];
 
-    let y = |z| x.len() == z;
+    let y = move |z| x.len() == z;
 
     let a = 2;
 
     y(a);
     y(a);
 
-    println!("{:?} {}", x, a);
+    // println!("{:?} {}", x, a);
+}
+
+#[cfg(test)]
+fn fn_test<F>(f: F)
+where
+    F: FnOnce(usize) -> bool + Copy
+{   
+    f(1);
+    f(2);
+    f(3);
 }
