@@ -34,13 +34,18 @@ where
 }
 
 fn main() {
-    let mut s = String::new();
+    let mut x = vec![1, 2, 3];
 
-    let us = || s;
+    let y = |z| z > x.len();
+    y(4);
+}
 
-    fn test<T: FnOnce() -> String>(f: T) {
-        
-    }
+#[cfg(test)]
+fn fn_once<F>(f: F)
+where
+    F: FnOnce(usize) -> bool
+{
+    println!("{}", f(4));
 }
 
 #[cfg(test)]
