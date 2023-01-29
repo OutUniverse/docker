@@ -5,3 +5,4 @@ elasticsearch/data/*
 tomcat/webapps/*
 gcc/compile/*
 rust/**/target/*
+.idea/*
