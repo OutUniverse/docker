@@ -34,11 +34,38 @@ where
 }
 
 fn main() {
-    let mut x = vec![1, 2, 3];
+    let mut s = "lalal".to_string();
 
-    let y = |z| z > x.len();
-    y(4);
+    let sf = |str| -> String {
+        s.push_str(str);
+        s
+    };
+
+    println!("{:?}", test_move_out_var(sf));
 }
+
+fn test_move_out_var<'a, F: FnOnce(&'a str) -> String>(f: F) -> String {
+    f("hello")
+}
+
+#[cfg(test)]
+fn exec_once<F>(f: F)
+where
+    F: FnOnce()
+{
+    f()
+}
+
+#[cfg(test)]
+fn exec_mut<F: FnMut()>(mut f: F) {
+    f()
+}
+
+#[cfg(test)]
+fn exec_immut<F: Fn()>(f: F) {
+    f()
+}
+
 
 #[cfg(test)]
 fn fn_once<F>(f: F)
