@@ -1,29 +1,17 @@
-fn main() {
-    let a = vec![1, 2, 3, 4, 5];
+use std::fmt::Display;
 
-    {
-        let result = match IntoIterator::into_iter(a) {
-            mut i => loop {
-                match i.next() {
-                    Some(x) => {println!("{}", x)},
-                    None => break
-                }
-            }
-        };
+// use std::fmt::*;
 
-        print!("{:?}", result);
+struct Wrapper(Vec<String>);
+
+impl Display for Wrapper {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "[{}]", self.0.join(" "))
     }
 }
 
-#[cfg(test)]
-fn test_next() {
-    let a = vec![1, 2, 3, 4, 5];
+fn main() {
+    let a = Wrapper(vec!["hello".to_string(), "world".to_string()]);
 
-    let mut b = a.into_iter();
-
-    println!("{:?}", b.next());
-    println!("{:?}", b.next());
-    println!("{:?}", b.next());
-    println!("{:?}", b.next());
-    println!("{:?}", b.next());
+    println!("{}", a);
 }
