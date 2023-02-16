@@ -6,3 +6,4 @@ tomcat/webapps/*
 gcc/compile/*
 rust/**/target/*
 .idea/*
+.env
