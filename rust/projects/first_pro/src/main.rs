@@ -1,44 +1,19 @@
-struct TestDropOne;
-impl Drop for TestDropOne {
-    fn drop(&mut self) {
-        println!("TestDropOne drop");
-    }
-}
-
-struct TestDropTwo;
-impl Drop for TestDropTwo {
-    fn drop(&mut self) {
-        println!("TestDropTwo drop");
-    }
-}
-
-#[allow(dead_code)]
-struct TestDropBox {
-    one: TestDropOne,
-    two: TestDropTwo
-}
-impl Drop for TestDropBox {
-    fn drop(&mut self) {
-        println!("TestDropBox drop");
-    }
-}
-
-struct Foo;
-impl Drop for Foo {
-    fn drop(&mut self) {
-        println!("Foo drop");
-    }
-}
-
 fn main() {
-    let _x = TestDropBox {
-        one: TestDropOne,
-        two: TestDropTwo
-    };
+    use std::rc::Rc;
 
-    let _foo = Foo;
+    let a = Rc::new(String::from("test"));
 
-    let a = 1;
-    
-    drop(a);
+    println!("{}", Rc::strong_count(&a));
+
+    let b = Rc::clone(&a);
+
+    println!("{}", Rc::strong_count(&a));
+
+    {
+        let c = Rc::clone(&b);
+
+        println!("{}", Rc::strong_count(&c));
+    }
+
+    println!("{}", Rc::strong_count(&a));
 }
