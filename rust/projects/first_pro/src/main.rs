@@ -37,4 +37,8 @@ fn main() {
     };
 
     let _foo = Foo;
+
+    let a = 1;
+    
+    drop(a);
 }
