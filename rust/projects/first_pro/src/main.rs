@@ -1,33 +1,58 @@
-use std::borrow::BorrowMut;
-use std::rc::Rc;
+use std::rc::{Weak, Rc};
 use std::cell::RefCell;
 
-struct Gadgets {
-    name: String,
-    owner: RefCell<Rc<Owner>>
+struct Node {
+    value: u32,
+    parent: RefCell<Weak<Node>>,
+    child: RefCell<Vec<Rc<Node>>>
 }
 
-struct Owner {
-    name: String,
-    gadgets: RefCell<Vec<Rc<Gadgets>>>
+impl Drop for Node {
+    fn drop(&mut self) {
+        println!("Node {} is dropped", self.value);
+    }
 }
 
 fn main() {
-    let owner_one = Rc::new(
-        Owner {
-            name: "Owner One".to_string(),
-            gadgets: RefCell::new(Vec::new()),
+    let node_one = Rc::new(
+        Node {
+            value: 1,
+            parent: RefCell::new(Weak::new()),
+            child: RefCell::new(Vec::new())
         }
     );
 
-    let gadget_one = Rc::new(
-        Gadgets {
-            name: "Gadgets One".to_string(),
-            owner: RefCell::new(Rc::clone(&owner_one))
+    let node_two = Rc::new(
+        Node {
+            value: 2,
+            parent: RefCell::new(Rc::downgrade(&node_one)),
+            child: RefCell::new(Vec::new())
         }
     );
 
-    owner_one.gadgets.borrow_mut().push(Rc::clone(&gadget_one));
+    node_one.child.borrow_mut().push(Rc::clone(&node_two));
 
-    
+    {
+        let node_three = Rc::new(
+            Node {
+                value: 3,
+                parent: RefCell::new(Rc::downgrade(&node_one)),
+                child: RefCell::new(Vec::new())
+            }
+        );
+
+        node_one.child.borrow_mut().push(Rc::clone(&node_three));
+
+        for node in node_one.child.borrow().iter() {
+            if let Some(item) = node.parent.borrow().upgrade() {
+                println!("Node {} is the child for Node {}", node.value, item.value);   
+            }
+        }
+    }
+
+    for node in node_one.child.borrow().iter() {
+        if let Some(item) = node.parent.borrow().upgrade() {
+            println!("Node {} is the child for Node {}", node.value, item.value);   
+        }
+    }
 }
