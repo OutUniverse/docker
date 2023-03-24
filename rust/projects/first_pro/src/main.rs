@@ -28,6 +28,17 @@ struct A {
 
 fn main() {
     let a = Rc::new(One(1, A {next: RefCell::new(Rc::new(Nil))}));
+    // match a {
+    //     One(value, _) => println!("{}", value),
+    //     _ => println!("none"),
+    // }
+
+    let b = One(2, A {next: RefCell::new(Rc::new(Nil))});
+
+    match b {
+        One(value, _) => println!("{}", value),
+        _ => println!("none"),
+    }
     // let b = Rc::new(One(2, A {next: RefCell::new(Rc::clone(&a))}));
     
     // println!("{:?}", a.0);
