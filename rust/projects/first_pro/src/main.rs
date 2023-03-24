@@ -13,7 +13,26 @@ impl Drop for Node {
     }
 }
 
+use crate::Test::{One, Nil};
+
+#[derive(Debug)]
+enum Test {
+    One(u32, A),
+    Nil
+}
+
+#[derive(Debug)]
+struct A {
+    next: RefCell<Rc<Test>>
+}
+
 fn main() {
+    let a = Rc::new(One(1, A {next: RefCell::new(Rc::new(Nil))}));
+    // let b = Rc::new(One(2, A {next: RefCell::new(Rc::clone(&a))}));
+    
+    // println!("{:?}", a.0);
+
+
     let node_one = Rc::new(
         Node {
             value: 1,
