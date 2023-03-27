@@ -1,3 +1,5 @@
+use std::borrow::BorrowMut;
+use std::ops::Deref;
 use std::rc::{Weak, Rc};
 use std::cell::RefCell;
 
@@ -28,6 +30,7 @@ struct A {
 
 fn main() {
     let a = Rc::new(One(1, A {next: RefCell::new(Rc::new(Nil))}));
+    let a_ref = a.deref().borrow_mut();
     // match a {
     //     One(value, _) => println!("{}", value),
     //     _ => println!("none"),
