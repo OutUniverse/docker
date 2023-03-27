@@ -30,21 +30,16 @@ struct A {
 
 fn main() {
     let a = Rc::new(One(1, A {next: RefCell::new(Rc::new(Nil))}));
-    let a_ref = a.deref().borrow_mut();
-    // match a {
-    //     One(value, _) => println!("{}", value),
-    //     _ => println!("none"),
-    // }
 
-    let b = One(2, A {next: RefCell::new(Rc::new(Nil))});
 
-    match b {
-        One(value, _) => println!("{}", value),
-        _ => println!("none"),
+    match a.deref() {
+        One(_, _) => println!("One"),
+        _ => println!("Other")
     }
-    // let b = Rc::new(One(2, A {next: RefCell::new(Rc::clone(&a))}));
-    
-    // println!("{:?}", a.0);
+        
+    if let One(i, a) = a.deref() {
+        // a.borrow_mut() = 
+    }
 
 
     let node_one = Rc::new(
