@@ -1,7 +1,6 @@
-use std::borrow::BorrowMut;
-use std::ops::Deref;
 use std::rc::{Weak, Rc};
 use std::cell::RefCell;
+use crate::A::{One, Nil};
 
 struct Node {
     value: u32,
@@ -15,32 +14,27 @@ impl Drop for Node {
     }
 }
 
-use crate::Test::{One, Nil};
-
-#[derive(Debug)]
-enum Test {
-    One(u32, A),
+enum A {
+    One(u32, RefCell<Rc<A>>),
     Nil
 }
 
-#[derive(Debug)]
-struct A {
-    next: RefCell<Rc<Test>>
+impl A {
+    fn next(&self) -> Option<&RefCell<Rc<A>>> {
+        match self {
+            One(_, item) => Some(item),
+            Nil => None    
+        }
+    }
 }
 
 fn main() {
-    let a = Rc::new(One(1, A {next: RefCell::new(Rc::new(Nil))}));
-
-
-    match a.deref() {
-        One(_, _) => println!("One"),
-        _ => println!("Other")
+    let a = Rc::new(One(1, RefCell::new(Rc::new(Nil))));
+    let b = Rc::new(One(2, RefCell::new(Rc::clone(&a))));
+    
+    if let Some(item) = a.next() {
+        *item.borrow_mut() = Rc::clone(&b);
     }
-        
-    if let One(i, a) = a.deref() {
-        // a.borrow_mut() = 
-    }
-
 
     let node_one = Rc::new(
         Node {
