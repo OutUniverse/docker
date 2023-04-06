@@ -1,15 +1,18 @@
-use std::ops::Deref;
-
+#[derive(Debug)]
 struct SelfRef<'a> {
     value: String,
-    reff: &'a str
+    reff: Option<&'a str>
 }
 
 fn main() {
     let s = String::from("hello world");
-    let a = SelfRef {
+    let mut a = SelfRef {
         value: s,
-        reff: &s
+        reff: None
     };
+
+    a.reff = Some(&a.value);
+
+    println!("{:?}", a);
 }
 
