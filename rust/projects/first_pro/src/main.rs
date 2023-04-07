@@ -16,3 +16,13 @@ fn main() {
     println!("{:?}", a);
 }
 
+fn create_selfref<'a>(s: String) -> SelfRef<'a> {
+    let mut a = SelfRef {
+        value: s,
+        reff: None
+    };
+
+    a.reff = Some(&a.value);
+
+    a
+}
