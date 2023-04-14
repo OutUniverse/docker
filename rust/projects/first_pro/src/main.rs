@@ -4,25 +4,16 @@ struct SelfRef<'a> {
     reff: Option<&'a str>
 }
 
-fn main() {
-    let s = String::from("hello world");
-    let mut a = SelfRef {
-        value: s,
-        reff: None
-    };
-
-    a.reff = Some(&a.value);
-
-    println!("{:?}", a);
+impl <'a> SelfRef<'a> {
+    fn tie_self(&'a mut self) {
+        self.reff = Some(&self.value);
+    }
 }
 
-fn create_selfref<'a>(s: String) -> SelfRef<'a> {
-    let mut a = SelfRef {
-        value: s,
-        reff: None
-    };
+fn main() {
+    let mut a = SelfRef { value: "a".to_string(), reff: None };
 
-    a.reff = Some(&a.value);
+    a.tie_self();
 
-    a
+    println!("{:?}", a);
 }
