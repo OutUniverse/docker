@@ -1,19 +1,48 @@
-#[derive(Debug)]
-struct SelfRef<'a> {
-    value: String,
-    reff: Option<&'a str>
+fn main() {
+    
 }
 
-impl <'a> SelfRef<'a> {
-    fn tie_self(&'a mut self) {
-        self.reff = Some(&self.value);
+#[cfg(test)]
+fn test_mut_ptr() {
+    #[derive(Debug)]
+    struct SelfRef {
+        value: String,
+        reff: *mut String
+    }
+
+    let mut a = SelfRef{
+        value: "a".to_string(),
+        reff: std::ptr::null_mut()
+    };
+
+    let mut b = "b".to_string();
+
+    a.reff = &mut a.value;
+
+    a.reff = &mut b;
+
+    unsafe {
+        (&mut *a.reff).push_str("b");
+        println!("{:?}", *a.reff);
     }
 }
 
-fn main() {
-    let mut a = SelfRef { value: "a".to_string(), reff: None };
+#[cfg(test)]
+fn test_const_ptr() {
+    #[derive(Debug)]
+    struct SelfRef {
+        value: String,
+        reff: *const String
+    }
 
-    a.tie_self();
+    let mut a = SelfRef {
+        value: "he".to_string(),
+        reff: std::ptr::null(),
+    };
 
-    println!("{:?}", a);
+    a.reff = &a.value;
+
+    unsafe {
+        println!("{:?}", *a.reff);
+    }
 }
