@@ -45,4 +45,5 @@ fn test_const_ptr() {
     unsafe {
         println!("{:?}", *a.reff);
     }
+    
 }
