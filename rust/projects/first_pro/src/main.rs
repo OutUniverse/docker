@@ -1,5 +1,5 @@
 fn main() {
-    
+    use std::marker::PhantomPinned;
 }
 
 #[cfg(test)]
