@@ -1,6 +1,65 @@
 
 
 fn main() {
+    use std::thread;
+    use std::cell::RefCell;
+    use std::thread::LocalKey;
+
+    thread_local! {
+        static FOO: RefCell<usize> = RefCell::new(0);
+    }
+
+    struct Test {
+        foo: &'static LocalKey<RefCell<usize>>,
+    }
+
+    impl Test {
+        fn new() -> Self {
+            Test {
+                foo: &FOO
+            }
+        }
+    }
+
+    let handle = thread::spawn(|| {
+        let b = Test::new();
+
+        b.foo.with(|f| {
+            *f.borrow_mut() = 2;
+            println!("{}", *f.borrow());
+            *f.borrow_mut() = 1;
+            println!("{}", *f.borrow());
+        });
+    });
+
+    handle.join().unwrap();
+
+    let a = Test::new();
+
+    a.foo.with(|f| {
+        println!("{}", *f.borrow());
+    });
+}
+
+#[cfg(test)]
+fn test_thread_local_in_struct() {
+    use std::cell::RefCell;
+
+    struct Stest;
+
+    impl Stest {
+        thread_local! {
+            static S_LOCAL: RefCell<usize> = RefCell::new(0);
+        }
+    }
+
+    Stest::S_LOCAL.with(|f| {
+        print!("{}", *f.borrow());
+    });
+}
+
+#[cfg(test)]
+fn test_thread_local() {
     use std::cell::RefCell;
     use std::thread;
 
