@@ -10,7 +10,6 @@ services:
       - ./mysql/data:/var/lib/mysql
       - ./mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf
     tty: true
-    user: "${DOCKER_USER}"
   redis:
     image: redislabs/redistimeseries:latest
     ports:
@@ -19,4 +18,3 @@ services:
       - ./redis/data:/data
       - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
     tty: true
-    user: "${DOCKER_USER}"
